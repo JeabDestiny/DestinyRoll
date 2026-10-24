@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#332342">
+  <meta name="description" content="Destiny Roll — Delta Force random loadout generator by JeabJeab.">
+  <title>Destiny Roll ✦ JeabJeab</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background" aria-hidden="true"></div>
+  <div class="background-shade" aria-hidden="true"></div>
+  <main class="page">
+    <header class="site-header">
+      <a class="brand" href="https://jeabdestiny.github.io/" target="_blank" rel="noopener noreferrer" aria-label="JeabJeab Destiny home">
+        <img src="Jeablogo.png" alt="JeabJeab chick logo" class="brand-logo">
+      </a>
+      <div class="brand-copy">
+        <h1>DESTINY <span>ROLL</span> <span class="sparkle">✦</span></h1>
+        <p>DELTA FORCE · RANDOM LOADOUTS</p>
+      </div>
+    </header>
+
+    <section class="loadout-grid" aria-label="สุ่ม Loadout">
+      <article class="slot slot-operator" data-slot="operator">
+        <div class="slot-heading"><span>01 / OPERATOR</span><span class="slot-status">READY</span></div>
+        <div class="slot-body">
+          <div class="slot-kicker">OPERATOR</div>
+          <div class="result-name" id="operator-name" aria-live="polite">พร้อมสุ่ม</div>
+          <div class="result-detail" id="operator-detail">เลือกสายที่ต้องการจากตัวเลือกด้านล่าง</div>
+        </div>
+        <div class="slot-actions">
+          <button class="btn btn-roll" data-roll="operator">หมุน</button>
+          <button class="btn btn-hold" data-hold="operator">กดค้าง</button>
+        </div>
+      </article>
+
+      <article class="slot slot-weapon" data-slot="weapon">
+        <div class="slot-heading"><span>02 / FIREARM</span><span class="slot-status">READY</span></div>
+        <div class="slot-body">
+          <div class="slot-kicker">FIREARM</div>
+          <div class="result-name" id="weapon-name" aria-live="polite">พร้อมสุ่ม</div>
+          <div class="result-detail" id="weapon-detail">เลือกประเภทปืนที่ต้องการจากด้านล่าง</div>
+        </div>
+        <div class="slot-actions">
+          <button class="btn btn-roll" data-roll="weapon">หมุน</button>
+          <button class="btn btn-hold" data-hold="weapon">กดค้าง</button>
+        </div>
+      </article>
+
+      <article class="slot slot-helmet" data-slot="helmet">
+        <div class="slot-heading"><span>03 / HELMET</span><span class="slot-status">READY</span></div>
+        <div class="slot-body">
+          <div class="slot-kicker">HELMET TIER</div>
+          <div class="result-name" id="helmet-name">พร้อมสุ่ม</div>
+          <div class="result-detail" id="helmet-detail">เลือกสีระดับหมวกด้านล่าง</div>
+        </div>
+        <div class="slot-actions">
+          <button class="btn btn-roll" data-roll="helmet">หมุน</button>
+          <button class="btn btn-hold" data-hold="helmet">กดค้าง</button>
+        </div>
+      </article>
+
+      <article class="slot slot-armor" data-slot="armor">
+        <div class="slot-heading"><span>04 / ARMOR</span><span class="slot-status">READY</span></div>
+        <div class="slot-body">
+          <div class="slot-kicker">ARMOR / VEST</div>
+          <div class="result-name" id="armor-name">พร้อมสุ่ม</div>
+          <div class="result-detail" id="armor-detail">เลือกสีระดับเกราะด้านล่าง</div>
+        </div>
+        <div class="slot-actions">
+          <button class="btn btn-roll" data-roll="armor">หมุน</button>
+          <button class="btn btn-hold" data-hold="armor">กดค้าง</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="filter-grid" aria-label="ตัวเลือกการสุ่ม">
+      <div class="filter-panel">
+        <div class="panel-title">
+          <h2>สาย Operator ที่อนุญาตให้สุ่ม</h2>
+          <span class="panel-mark">A</span>
+        </div>
+        <div class="check-grid" id="operator-filters">
+          <label class="check"><input type="checkbox" value="Assault" checked><span>Assault</span></label>
+          <label class="check"><input type="checkbox" value="Support" checked><span>Support</span></label>
+          <label class="check"><input type="checkbox" value="Engineer" checked><span>Engineer</span></label>
+          <label class="check"><input type="checkbox" value="Recon" checked><span>Recon</span></label>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-small" data-check-all="operator-filters">เลือกทั้งหมด</button>
+          <button class="btn btn-small btn-muted" data-uncheck-all="operator-filters">ยกเลิกทั้งหมด</button>
+        </div>
+        <p class="hint">สุ่มเฉพาะตัวละครในสายที่ติ๊กเลือกไว้</p>
+      </div>
+
+      <div class="filter-panel">
+        <div class="panel-title">
+          <h2>ประเภทปืนที่อนุญาตให้สุ่ม</h2>
+          <span class="panel-mark">B</span>
+        </div>
+        <div class="check-grid" id="weapon-filters">
+          <label class="check"><input type="checkbox" value="Assault Rifle" checked><span>Assault Rifle</span></label>
+          <label class="check"><input type="checkbox" value="Battle Rifle" checked><span>Battle Rifle</span></label>
+          <label class="check"><input type="checkbox" value="SMG" checked><span>SMG</span></label>
+          <label class="check"><input type="checkbox" value="Shotgun" checked><span>Shotgun</span></label>
+          <label class="check"><input type="checkbox" value="LMG" checked><span>LMG</span></label>
+          <label class="check"><input type="checkbox" value="Marksman Rifle" checked><span>Marksman Rifle</span></label>
+          <label class="check"><input type="checkbox" value="Sniper Rifle" checked><span>Sniper Rifle</span></label>
+          <label class="check"><input type="checkbox" value="Pistol" checked><span>Pistol</span></label>
+          <label class="check"><input type="checkbox" value="Special" checked><span>Special</span></label>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-small" data-check-all="weapon-filters">เลือกทั้งหมด</button>
+          <button class="btn btn-small btn-muted" data-uncheck-all="weapon-filters">ยกเลิกทั้งหมด</button>
+        </div>
+        <p class="hint">เลือกได้หลายประเภท เช่น ติ๊กเฉพาะ Sniper Rifle กับ Pistol ก็จะสุ่มจากสองประเภทนี้เท่านั้น</p>
+      </div>
+
+      <div class="filter-panel">
+        <div class="panel-title">
+          <h2>ระดับหมวกที่อนุญาตให้สุ่ม</h2>
+          <span class="panel-mark">C</span>
+        </div>
+        <div class="check-grid tier-grid" id="helmet-filters">
+          <label class="check tier tier-white"><input type="checkbox" value="ขาว" checked><span>ขาว</span></label>
+          <label class="check tier tier-green"><input type="checkbox" value="เขียว" checked><span>เขียว</span></label>
+          <label class="check tier tier-blue"><input type="checkbox" value="ฟ้า" checked><span>ฟ้า</span></label>
+          <label class="check tier tier-purple"><input type="checkbox" value="ม่วง" checked><span>ม่วง</span></label>
+          <label class="check tier tier-gold"><input type="checkbox" value="ทอง" checked><span>ทอง</span></label>
+          <label class="check tier tier-red"><input type="checkbox" value="แดง" checked><span>แดง</span></label>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-small" data-check-all="helmet-filters">เลือกทั้งหมด</button>
+          <button class="btn btn-small btn-muted" data-uncheck-all="helmet-filters">ยกเลิกทั้งหมด</button>
+        </div>
+        <p class="hint">เลือกสีที่ต้องการให้มีโอกาสออกตอนสุ่มหมวก</p>
+      </div>
+
+      <div class="filter-panel">
+        <div class="panel-title">
+          <h2>ระดับเกราะที่อนุญาตให้สุ่ม</h2>
+          <span class="panel-mark">D</span>
+        </div>
+        <div class="check-grid tier-grid" id="armor-filters">
+          <label class="check tier tier-white"><input type="checkbox" value="ขาว" checked><span>ขาว</span></label>
+          <label class="check tier tier-green"><input type="checkbox" value="เขียว" checked><span>เขียว</span></label>
+          <label class="check tier tier-blue"><input type="checkbox" value="ฟ้า" checked><span>ฟ้า</span></label>
+          <label class="check tier tier-purple"><input type="checkbox" value="ม่วง" checked><span>ม่วง</span></label>
+          <label class="check tier tier-gold"><input type="checkbox" value="ทอง" checked><span>ทอง</span></label>
+          <label class="check tier tier-red"><input type="checkbox" value="แดง" checked><span>แดง</span></label>
+        </div>
+        <div class="filter-actions">
+          <button class="btn btn-small" data-check-all="armor-filters">เลือกทั้งหมด</button>
+          <button class="btn btn-small btn-muted" data-uncheck-all="armor-filters">ยกเลิกทั้งหมด</button>
+        </div>
+        <p class="hint">เลือกสีที่ต้องการให้มีโอกาสออกตอนสุ่มเกราะ</p>
+      </div>
+    </section>
+
+    <section class="main-roll">
+      <button class="btn btn-all" id="spin-all">หมุนทั้งหมด</button>
+      <p>กด <strong>หมุน</strong> 1 ครั้งเพื่อให้สุ่มอัตโนมัติจนจบหนึ่งรอบ · กดค้างที่ <strong>กดค้าง</strong> เพื่อให้หมุนต่อเนื่อง และปล่อยปุ่มเพื่อหยุด</p>
+    </section>
+
+    <section class="budget-panel">
+      <div class="budget-copy">
+        <span class="eyebrow">LOADOUT RULE</span>
+        <h2>Weapon Mod Budget</h2>
+        <p>สุ่มงบแต่งปืนสำหรับ Loadout นี้</p>
+      </div>
+      <div class="budget-result" id="budget" aria-live="polite">300k</div>
+      <button class="btn btn-budget" id="roll-budget">สุ่มงบ</button>
+    </section>
+
+    <footer class="site-footer">
+      <div class="footer-logo"><img src="Jeablogo.png" alt="" loading="lazy"></div>
+      <div>🐥 &nbsp; © 2026 JeabJeab &nbsp; ✦ &nbsp; Made with Destiny</div>
+      <a href="https://jeabdestiny.github.io/" target="_blank" rel="noopener noreferrer">jeabdestiny.github.io ↗</a>
+    </footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
