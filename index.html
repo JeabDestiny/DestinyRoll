@@ -103,8 +103,7 @@
           <span class="panel-mark">B</span>
         </div>
         <div class="check-grid" id="weapon-filters">
-          <label class="check"><input type="checkbox" value="Assault Rifle" checked><span>Assault Rifle</span></label>
-          <label class="check"><input type="checkbox" value="Battle Rifle" checked><span>Battle Rifle</span></label>
+          <label class="check"><input type="checkbox" value="Rifle" checked><span>Rifle</span></label>
           <label class="check"><input type="checkbox" value="SMG" checked><span>SMG</span></label>
           <label class="check"><input type="checkbox" value="Shotgun" checked><span>Shotgun</span></label>
           <label class="check"><input type="checkbox" value="LMG" checked><span>LMG</span></label>
@@ -166,14 +165,20 @@
       <p>กด <strong>หมุน</strong> 1 ครั้งเพื่อให้สุ่มอัตโนมัติจนจบหนึ่งรอบ · กดค้างที่ <strong>กดค้าง</strong> เพื่อให้หมุนต่อเนื่อง และปล่อยปุ่มเพื่อหยุด</p>
     </section>
 
-    <section class="budget-panel">
+    <section class="budget-panel" id="budget-panel" aria-label="สุ่มงบแต่งปืน">
+      <div class="budget-orbit orbit-one" aria-hidden="true"></div>
+      <div class="budget-orbit orbit-two" aria-hidden="true"></div>
       <div class="budget-copy">
-        <span class="eyebrow">LOADOUT RULE</span>
-        <h2>Weapon Mod Budget</h2>
-        <p>สุ่มงบแต่งปืนสำหรับ Loadout นี้</p>
+        <span class="eyebrow"><span class="eyebrow-dot"></span> LOADOUT RULE / 05</span>
+        <h2>Weapon Mod <span>Budget</span></h2>
+        <p>กำหนดงบแต่งปืนของ Loadout นี้</p>
       </div>
-      <div class="budget-result" id="budget" aria-live="polite">300k</div>
-      <button class="btn btn-budget" id="roll-budget">สุ่มงบ</button>
+      <div class="budget-display">
+        <span class="budget-caption">YOUR BUDGET</span>
+        <div class="budget-result" id="budget" aria-live="polite">300k</div>
+        <span class="budget-unit">DELTA CREDITS</span>
+      </div>
+      <button class="btn btn-budget" id="roll-budget"><span class="budget-btn-icon" aria-hidden="true">✦</span><span>สุ่มงบ</span></button>
     </section>
 
     <footer class="site-footer">

@@ -19,13 +19,13 @@ const operatorList = [
 ];
 
 const weaponList = [
-  ['AKS-74','Assault Rifle'], ['CAR-15','Assault Rifle'], ['QBZ95-1','Assault Rifle'],
-  ['M4A1','Assault Rifle'], ['M16A4','Assault Rifle'], ['SG 552','Assault Rifle'],
-  ['AK-12','Assault Rifle'], ['PTR-32','Assault Rifle'], ['AKM','Assault Rifle'],
-  ['AS Val','Assault Rifle'], ['CI-19','Assault Rifle'], ['K416','Assault Rifle'],
-  ['AUG','Assault Rifle'], ['K437','Assault Rifle'], ['KC17','Assault Rifle'],
-  ['G3','Battle Rifle'], ['SCAR-H','Battle Rifle'], ['Ash-12','Battle Rifle'],
-  ['M7','Battle Rifle'], ['MK47','Battle Rifle'], ['RCX-Spear','Battle Rifle'],
+  ['AKS-74','Rifle'], ['CAR-15','Rifle'], ['QBZ95-1','Rifle'],
+  ['M4A1','Rifle'], ['M16A4','Rifle'], ['SG 552','Rifle'],
+  ['AK-12','Rifle'], ['PTR-32','Rifle'], ['AKM','Rifle'],
+  ['AS Val','Rifle'], ['CI-19','Rifle'], ['K416','Rifle'],
+  ['AUG','Rifle'], ['K437','Rifle'], ['KC17','Rifle'],
+  ['G3','Rifle'], ['SCAR-H','Rifle'], ['Ash-12','Rifle'],
+  ['M7','Rifle'], ['MK47','Rifle'], ['RCX-Spear','Rifle'],
   ['UZI','SMG'], ['Bizon','SMG'], ['SMG-45','SMG'], ['MP5','SMG'],
   ['Vector','SMG'], ['MP7','SMG'], ['P90','SMG'], ['SR-3M','SMG'],
   ['Vityaz','SMG'], ['QCQ171','SMG'], ['K15','SMG'],
@@ -222,8 +222,28 @@ document.querySelectorAll('[data-uncheck-all]').forEach(button => {
   });
 });
 document.getElementById('spin-all').addEventListener('click', spinAll);
+let budgetTimer = null;
 document.getElementById('roll-budget').addEventListener('click', () => {
-  document.getElementById('budget').textContent = pick(budgetList);
+  if (budgetTimer) return;
+  const panel = document.getElementById('budget-panel');
+  const result = document.getElementById('budget');
+  const button = document.getElementById('roll-budget');
+  let ticks = 0;
+  panel.classList.add('is-spinning');
+  button.disabled = true;
+  button.querySelector('span:last-child').textContent = 'กำลังสุ่ม…';
+  budgetTimer = setInterval(() => {
+    result.textContent = pick(budgetList);
+    ticks += 1;
+    if (ticks >= 16) {
+      clearInterval(budgetTimer);
+      budgetTimer = null;
+      result.textContent = pick(budgetList);
+      panel.classList.remove('is-spinning');
+      button.disabled = false;
+      button.querySelector('span:last-child').textContent = 'สุ่มงบอีกครั้ง';
+    }
+  }, 75);
 });
 
 // Allow the user to stop a hold if the pointer is released outside the button/window.
