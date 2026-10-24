@@ -40,6 +40,7 @@ const weaponList = [
   ['Compound Bow','Special']
 ];
 const tierList = ['ขาว', 'เขียว', 'ฟ้า', 'ม่วง', 'ทอง', 'แดง'];
+const budgetList = ['200k', '300k', '400k', '500k', '600k', '700k', '800k', '900k', '1M', '1.1M', '1.2M', '1.3M', '1.4M', '1.5M', '1.6M', '1.7M', '1.8M', '1.9M', '2M'];
 
 const activeTimers = { operator: null, weapon: null, helmet: null, armor: null };
 const isPressing = { operator: false, weapon: false, helmet: false, armor: false };
@@ -221,6 +222,29 @@ document.querySelectorAll('[data-uncheck-all]').forEach(button => {
   });
 });
 document.getElementById('spin-all').addEventListener('click', spinAll);
+let budgetTimer = null;
+document.getElementById('roll-budget').addEventListener('click', () => {
+  if (budgetTimer) return;
+  const panel = document.getElementById('budget-panel');
+  const result = document.getElementById('budget');
+  const button = document.getElementById('roll-budget');
+  let ticks = 0;
+  panel.classList.add('is-spinning');
+  button.disabled = true;
+  button.querySelector('span:last-child').textContent = 'กำลังสุ่ม…';
+  budgetTimer = setInterval(() => {
+    result.textContent = pick(budgetList);
+    ticks += 1;
+    if (ticks >= 16) {
+      clearInterval(budgetTimer);
+      budgetTimer = null;
+      result.textContent = pick(budgetList);
+      panel.classList.remove('is-spinning');
+      button.disabled = false;
+      button.querySelector('span:last-child').textContent = 'สุ่มงบอีกครั้ง';
+    }
+  }, 75);
+});
 
 // Allow the user to stop a hold if the pointer is released outside the button/window.
 window.addEventListener('pointerup', () => {
