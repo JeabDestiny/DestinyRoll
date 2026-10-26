@@ -19,25 +19,44 @@ const operatorList = [
 ];
 
 const weaponList = [
-  ['AKS-74','Rifle'], ['CAR-15','Rifle'], ['QBZ95-1','Rifle'],
-  ['M4A1','Rifle'], ['M16A4','Rifle'], ['SG 552','Rifle'],
-  ['AK-12','Rifle'], ['PTR-32','Rifle'], ['AKM','Rifle'],
-  ['AS Val','Rifle'], ['CI-19','Rifle'], ['K416','Rifle'],
-  ['AUG','Rifle'], ['K437','Rifle'], ['KC17','Rifle'],
-  ['G3','Rifle'], ['SCAR-H','Rifle'], ['Ash-12','Rifle'],
-  ['M7','Rifle'], ['MK47','Rifle'], ['RCX-Spear','Rifle'],
+  // Rifle (รวม Assault Rifle และ Battle Rifle เป็นหมวดเดียว)
+  ['AKS-74','Rifle'], ['CAR-15','Rifle'], ['QBZ95-1','Rifle'], ['M4A1','Rifle'],
+  ['M16A4','Rifle'], ['SG 552','Rifle'], ['AK-12','Rifle'], ['PTR-32','Rifle'],
+  ['AKM','Rifle'], ['AS Val','Rifle'], ['CI-19','Rifle'], ['K416','Rifle'],
+  ['AUG','Rifle'], ['K437','Rifle'], ['KC17','Rifle'], ['G3','Rifle'],
+  ['SCAR-H','Rifle'], ['Ash-12','Rifle'], ['M7','Rifle'], ['MK47','Rifle'],
+  ['MCX LT','Rifle'], ['AR-57','Rifle'], ['RM227','Rifle'], ['MDR','Rifle'],
+
+  // SMG
   ['UZI','SMG'], ['Bizon','SMG'], ['SMG-45','SMG'], ['MP5','SMG'],
   ['Vector','SMG'], ['MP7','SMG'], ['P90','SMG'], ['SR-3M','SMG'],
-  ['Vityaz','SMG'], ['QCQ171','SMG'], ['K15','SMG'],
-  ['M1014','Shotgun'], ['S12K','Shotgun'], ['M870','Shotgun'], ['725','Shotgun'],
+  ['Vityaz','SMG'], ['QCQ171','SMG'], ['MK4','SMG'], ['Thompson','SMG'],
+
+  // Shotgun
+  ['M1014','Shotgun'], ['S12K','Shotgun'], ['M870','Shotgun'],
+  ['725','Shotgun'], ['FS-12','Shotgun'],
+
+  // Light Machine Gun
   ['M249','LMG'], ['QJB 201','LMG'], ['PKM','LMG'], ['M250','LMG'],
-  ['Mini-14','Marksman Rifle'], ['VSS','Marksman Rifle'], ['PSG-1','Marksman Rifle'],
-  ['SVD','Marksman Rifle'], ['SR-25','Marksman Rifle'], ['SKS','Marksman Rifle'],
+
+  // Marksman Rifle (ยึดตามหมวดในรายการที่ผู้ใช้ส่งมา)
+  ['Mini-14','Marksman Rifle'], ['VSS','Marksman Rifle'],
+  ['PSG-1','Marksman Rifle'], ['SVD','Marksman Rifle'],
+  ['SR-25','Marksman Rifle'], ['SKS','Marksman Rifle'],
   ['M14','Marksman Rifle'], ['SR9','Marksman Rifle'],
-  ['SV-98','Sniper Rifle'], ['R93','Sniper Rifle'], ['M700','Sniper Rifle'], ['AWM','Sniper Rifle'],
-  ['G17','Pistol'], ['QSZ-92G','Pistol'], ['93R','Pistol'], ['Desert Eagle','Pistol'],
-  ['G18','Pistol'], ['.357 Revolver','Pistol'], ['M1911','Pistol'],
-  ['Compound Bow','Special']
+  ['Marlin Lever-action Rifle','Marksman Rifle'],
+
+  // Sniper Rifle
+  ['SV-98','Sniper Rifle'], ['R93','Sniper Rifle'], ['M700','Sniper Rifle'],
+  ['AWM','Sniper Rifle'], ['Barrett M82','Sniper Rifle'],
+
+  // Special Weapon
+  ['Compound Bow','Special'],
+
+  // Pistol
+  ['G17','Pistol'], ['QSZ-92G','Pistol'], ['93R','Pistol'],
+  ['Desert Eagle','Pistol'], ['G18','Pistol'], ['.357 Revolver','Pistol'],
+  ['M1911','Pistol']
 ];
 const tierList = ['ขาว', 'เขียว', 'ฟ้า', 'ม่วง', 'ทอง', 'แดง'];
 const budgetList = ['200k', '300k', '400k', '500k', '600k', '700k', '800k', '900k', '1M', '1.1M', '1.2M', '1.3M', '1.4M', '1.5M', '1.6M', '1.7M', '1.8M', '1.9M', '2M'];
